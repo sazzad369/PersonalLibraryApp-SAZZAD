@@ -54,6 +54,8 @@
                 android:text="Please Add your profile with your information"
                 android:textSize="15dp" />
 
+
+
             <EditText
                 android:id="@+id/BookTitleEt"
                 android:layout_width="match_parent"
@@ -88,8 +90,8 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custom_edittext"
                 android:drawablePadding="8dp"
-                android:hint="Enter your District"
-                android:inputType="text"
+                android:hint="Enter Book Page"
+                android:inputType="number"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background" />

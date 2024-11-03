@@ -31,8 +31,8 @@ class BookDetailActivity : AppCompatActivity() {
 
     private fun populateFields() {
         IdTextView.text = bookLibrary.id.toString()
-        TitleTextView.text = bookLibrary.Title
-        AuthorTextView.text = bookLibrary.Author
-        PageTextView.text = bookLibrary.Page.toString()
+        TitleTextView.text = bookLibrary.title
+        AuthorTextView.text = bookLibrary.author
+        PageTextView.text = bookLibrary.pages.toString()
     }
 }

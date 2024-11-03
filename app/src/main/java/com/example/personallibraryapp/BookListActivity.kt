@@ -12,14 +12,15 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class BookListActivity : AppCompatActivity() {
 
-    private lateinit var profileViewModel: LibraryBookViewModel
+
+    private lateinit var BookViewModel: LibraryBookViewModel
     private lateinit var bookAdapter: BookAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_list)
 
-        profileViewModel = ViewModelProvider(this).get(LibraryBookViewModel::class.java)
+       BookViewModel = ViewModelProvider(this).get(LibraryBookViewModel::class.java)
 
         val recyclerView = findViewById<RecyclerView>(R.id.profileRecyclerView)
         bookAdapter = BookAdapter()
@@ -28,14 +29,14 @@ class BookListActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Observe profiles from ViewModel
-        profileViewModel.getUserProfiles().observe(this, Observer { profiles ->
+        BookViewModel.getUserProfiles().observe(this, Observer { profiles ->
             bookAdapter.submitList(profiles)
         })
 
         // Set item click listener for details
-        bookAdapter.setOnItemClickListener { userProfile ->
+        bookAdapter.setOnItemClickListener { bookLibrary ->
             val intent = Intent(this@BookListActivity, BookDetailActivity::class.java)
-            intent.putExtra("USER_PROFILE", userProfile)
+            intent.putExtra("BOOK_LIBRARY", bookLibrary)
             startActivity(intent)
         }
 
@@ -45,9 +46,9 @@ class BookListActivity : AppCompatActivity() {
         }
 
         // Set update click listener
-        bookAdapter.setOnUpdateClickListener { userProfile ->
+        bookAdapter.setOnUpdateClickListener { bookLibrary ->
             val intent = Intent(this@BookListActivity, BookUpdateActivity::class.java)
-            intent.putExtra("USER_PROFILE", userProfile)
+            intent.putExtra("BOOK_LIBRARY", bookLibrary)
             startActivity(intent)
         }
 
@@ -61,11 +62,11 @@ class BookListActivity : AppCompatActivity() {
     // Show delete confirmation dialog
     private fun showDeleteConfirmationDialog(bookLibrary: BookLibrary) {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Delete Profile")
-        builder.setMessage("Are you sure you want to delete this profile?")
+        builder.setTitle("Delete Book")
+        builder.setMessage("Are you sure you want to delete this Book?")
 
         builder.setPositiveButton("Yes") { dialog, which ->
-            profileViewModel.deleteUserProfile(bookLibrary)  // Delete the profile
+            BookViewModel.deleteUserProfile(bookLibrary)  // Delete the profile
             dialog.dismiss()
         }
 

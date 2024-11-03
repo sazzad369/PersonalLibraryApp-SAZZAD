@@ -56,9 +56,9 @@ class BookUpdateActivity : AppCompatActivity() {
     }
 
     private fun populateFields() {
-        nameEditText.setText(bookLibrary.Title)
-        emailEditText.setText(bookLibrary.Author)
-        dobEditText.setText(bookLibrary.Page)
+        nameEditText.setText(bookLibrary.title)
+        emailEditText.setText(bookLibrary.author)
+        dobEditText.setText(bookLibrary.pages)
     }
 
     private fun validateInputs(): Boolean {
@@ -96,9 +96,9 @@ class BookUpdateActivity : AppCompatActivity() {
         // Create updated user profile
         val updatedBookLibrary = BookLibrary(
             id = bookLibrary.id,
-            Title = Title,
-            Author = Author,
-            Page = Page,
+            title = Title,
+            author = Author,
+            pages = Page,
         )
 
         // Perform the update in ViewModel

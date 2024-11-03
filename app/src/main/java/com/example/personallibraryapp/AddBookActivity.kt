@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 
 class AddBookActivity : AppCompatActivity() {
+
     private lateinit var profileViewModel: LibraryBookViewModel
     private lateinit var progressDialog: ProgressDialog // ProgressDialog variable
 
@@ -19,7 +20,7 @@ class AddBookActivity : AppCompatActivity() {
         profileViewModel = ViewModelProvider(this).get(LibraryBookViewModel::class.java)
 
         val TitleEditText = findViewById<EditText>(R.id.BookTitleEt)
-        val AuthorEditText = findViewById<EditText>(R.id.BookTitleEt)
+        val AuthorEditText = findViewById<EditText>(R.id.BookAuthorEt)
         val BookpageEditText = findViewById<EditText>(R.id.BookPageEt)
 
         // Initialize ProgressDialog
@@ -36,7 +37,7 @@ class AddBookActivity : AppCompatActivity() {
                 val Author = AuthorEditText.text.toString().trim()
                 val page = BookpageEditText.text.toString().trim()
 
-                val bookLibrary = BookLibrary(Title = Title, Author = Author, Page = page,)
+                val bookLibrary = BookLibrary(id = 0, title = Title, author = Author, pages = page,)
                 profileViewModel.insertUserProfile(bookLibrary)
 
                 // Simulate loading and delay for 2 seconds

@@ -18,6 +18,6 @@ interface LibraryBookDao {
     @Delete
     suspend fun delete(bookLibrary: BookLibrary)
 
-    @Query("SELECT * FROM user_profile")
+    @Query("SELECT * FROM books")
     fun getAllUserProfiles(): LiveData<List<BookLibrary>>
 }

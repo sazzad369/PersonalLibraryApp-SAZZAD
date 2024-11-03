@@ -71,9 +71,9 @@ class BookAdapter : ListAdapter<BookLibrary, BookAdapter.ProfileViewHolder>(Diff
         }
 
         fun bind(bookLibrary: BookLibrary) {
-            Booktitle.text = bookLibrary.Title
-            BookAuthor.text = bookLibrary.Author
-            BookPage.text = bookLibrary.Page.toString()
+            Booktitle.text = bookLibrary.title
+            BookAuthor.text = bookLibrary.author
+            BookPage.text = bookLibrary.pages.toString()
         }
     }
 
