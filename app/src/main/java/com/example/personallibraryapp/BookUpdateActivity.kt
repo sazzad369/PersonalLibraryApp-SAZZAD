@@ -30,7 +30,7 @@ class BookUpdateActivity : AppCompatActivity() {
         profileViewModel = ViewModelProvider(this).get(LibraryBookViewModel::class.java)
 
         // Retrieve user profile from intent
-        bookLibrary = intent.getSerializableExtra("USER_PROFILE") as BookLibrary
+        bookLibrary = intent.getSerializableExtra("BOOK_LIBRARY") as BookLibrary
 
         // Initialize EditText fields
         nameEditText = findViewById(R.id.BookTitleEt)
