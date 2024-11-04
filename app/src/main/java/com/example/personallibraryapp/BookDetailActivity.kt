@@ -3,6 +3,7 @@ package com.example.personallibraryapp
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import java.text.NumberFormat
 
 class BookDetailActivity : AppCompatActivity() {
     private lateinit var bookLibrary: BookLibrary
@@ -12,14 +13,21 @@ class BookDetailActivity : AppCompatActivity() {
     private lateinit var AuthorTextView: TextView
     private lateinit var PageTextView: TextView
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_detail)
 
-        // Retrieve the user profile from the intent
-        bookLibrary = intent.getSerializableExtra("USER_PROFILE") as BookLibrary
+        // Retrieve the book information from the intent
+        val bookLibrarySerializable = intent.getSerializableExtra("BOOK_LIBRARY")// Retrieve the book information from the intent
+
+        // Check if the retrieved object is null
+        if (bookLibrarySerializable is BookLibrary) {
+            bookLibrary = bookLibrarySerializable
+        } else {
+            // Handle the error, possibly finish the activity or show a message
+            finish() // Finish the activity if the data is not valid
+            return
+        }
 
         IdTextView = findViewById(R.id.BookIdLabelTextView)
         TitleTextView = findViewById(R.id.BooktitleabelTextView)
@@ -30,9 +38,9 @@ class BookDetailActivity : AppCompatActivity() {
     }
 
     private fun populateFields() {
-        IdTextView.text = bookLibrary.id.toString()
+        IdTextView.text = NumberFormat.getInstance().format(bookLibrary.id)// Display the auto-generated ID
         TitleTextView.text = bookLibrary.title
         AuthorTextView.text = bookLibrary.author
-        PageTextView.text = bookLibrary.pages.toString()
+        PageTextView.text = bookLibrary.pages // Assuming pages is a String
     }
 }

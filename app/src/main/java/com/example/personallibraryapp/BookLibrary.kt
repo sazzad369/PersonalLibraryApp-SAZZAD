@@ -6,7 +6,8 @@ import java.io.Serializable
 
 @Entity(tableName = "books")
 data class BookLibrary(
-    @PrimaryKey(autoGenerate = true) val id: Long = 0,
+    @PrimaryKey(autoGenerate = true)
+    val id: Long = 0,
     val title: String,
     val author: String,
     val pages: String,

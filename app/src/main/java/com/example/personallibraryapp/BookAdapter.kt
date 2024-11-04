@@ -37,6 +37,11 @@ class BookAdapter : ListAdapter<BookLibrary, BookAdapter.ProfileViewHolder>(Diff
         onUpdateClickListener = listener
     }
 
+    fun getBookAtPosition(position: Int): BookLibrary {
+        return getItem(position)
+
+    }
+
     inner class ProfileViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val Booktitle: TextView = itemView.findViewById(R.id.BookTitletxt)
         private val BookAuthor: TextView = itemView.findViewById(R.id.BookAuthorTxt)
@@ -85,5 +90,6 @@ class BookAdapter : ListAdapter<BookLibrary, BookAdapter.ProfileViewHolder>(Diff
         override fun areContentsTheSame(oldItem: BookLibrary, newItem: BookLibrary): Boolean {
             return oldItem == newItem
         }
+
     }
 }
