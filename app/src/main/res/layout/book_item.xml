@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp">
 
-        <TextView
+        TextView
             android:id="@+id/appNameTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -30,93 +30,82 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <TextView
-            android:id="@+id/BookNameTxt"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginStart="10dp"
-            android:text="Id"
-            android:textSize="20sp"
-            android:textColor="#FDF1F1"
-            app:layout_constraintEnd_toStartOf="@+id/editBtn"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appNameTxt" />
+         />
 
         <TextView
             android:id="@+id/BookTitletxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:text="Title"
-            android:textSize="18sp"
             android:textColor="#F2E6E6"
-            app:layout_constraintEnd_toEndOf="@+id/BookNameTxt"
-            app:layout_constraintStart_toStartOf="@+id/BookNameTxt"
-            app:layout_constraintTop_toBottomOf="@id/BookNameTxt" />
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/editBtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <TextView
             android:id="@+id/BookAuthorTxt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:text="Author"
-            android:textSize="18sp"
             android:textColor="#F2EDED"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/BookTitletxt"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/BookTitletxt"
             app:layout_constraintTop_toBottomOf="@id/BookTitletxt" />
 
         <TextView
             android:id="@+id/BookPageTxt"
-            android:layout_width="0dp"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:text="Page"
-            android:textSize="18sp"
             android:textColor="#FDF6F6"
+            android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="@+id/BookAuthorTxt"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/BookAuthorTxt"
             app:layout_constraintTop_toBottomOf="@id/BookAuthorTxt" />
-
-
 
         <ImageButton
             android:id="@+id/editBtn"
             android:layout_width="42dp"
             android:layout_height="42dp"
-            android:layout_marginTop="24dp"
             android:background="@android:color/transparent"
             android:src="@drawable/edit"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/BookPageTxt" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/deleteBtn"
             android:layout_width="42dp"
             android:layout_height="42dp"
-            android:paddingRight="10dp"
             android:background="@android:color/transparent"
+            android:paddingRight="10dp"
             android:src="@drawable/delete"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/editBtn"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/editBtn"
             app:layout_constraintTop_toBottomOf="@id/editBtn"
-            app:layout_constraintVertical_bias="0.515" />
+            app:layout_constraintVertical_bias="0.097" />
 
         <CheckBox
             android:id="@+id/checkbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="4dp"
             android:text="IsRead"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/BookPageTxt"
-            app:layout_constraintVertical_bias="0.555" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/BookPageTxt"
+            app:layout_constraintTop_toBottomOf="@+id/deleteBtn"
+            app:layout_constraintVertical_bias="0.0" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
