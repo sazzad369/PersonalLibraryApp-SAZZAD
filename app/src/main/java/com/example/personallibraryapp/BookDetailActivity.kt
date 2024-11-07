@@ -38,9 +38,9 @@ class BookDetailActivity : AppCompatActivity() {
     }
 
     private fun populateFields() {
-        IdTextView.text = NumberFormat.getInstance().format(bookLibrary.id)// Display the auto-generated ID
+        IdTextView.text = NumberFormat.getInstance().format(bookLibrary.id)
         TitleTextView.text = bookLibrary.title
         AuthorTextView.text = bookLibrary.author
-        PageTextView.text = bookLibrary.pages // Assuming pages is a String
+        PageTextView.text = bookLibrary.pages
     }
 }
